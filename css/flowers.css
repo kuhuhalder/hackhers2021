@@ -1,0 +1,10 @@
+
+#flowers {
+    position: relative;
+    height: 100%;
+}
+
+#flowers .icon {
+    position: absolute;
+    z-index: -3;
+}

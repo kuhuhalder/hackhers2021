@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HackHERS 2021</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!--    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600&display=swap" rel="stylesheet">-->
+<!--    <link rel="stylesheet" type="text/css" href="css/font-awesome-4.6.3/css/font-awesome.min.css">-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">-->
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+
+    <script src="https://use.fontawesome.com/9f7b7f8456.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/graphics/diano.png">
+</head>
+
+<body>
+<!--navbar markup-->
+
+<!--<nav class="navbar navbar fixed-top">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--            </button>-->
+<!--        </div>-->
+
+<!--        <div class="collapse navbar-collapse" id="myNavbar">-->
+<!--            <ul class="nav navbar-nav" id="navbar-left">-->
+<!--                <li><a href="#about">About</a></li>-->
+<!--                <li><a href="#get-involved">Join Us</a></li>-->
+<!--                <li><a href="#schedule">Schedule</a></li>-->
+<!--            </ul>-->
+<!--            &lt;!&ndash;<img src="img/logo-nav.png" id="nav-shell">&ndash;&gt;-->
+<!--            <ul class="nav navbar-nav" id="navbar-right">-->
+<!--                <li><a href="#faq">Faq</a></li>-->
+<!--                <li><a href="#sponsors">Sponsors</a></li>-->
+<!--                <li><a href="#team">Team</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<!--end navbar markup-->
+<div class="container-fluid">
+<nav class="navbar navbar-expand-sm fixed-top" id="navbar">
+    <div class="navbar-header">
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar navbarMenu">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#sponsors" class="nav-link">Sponsors</a></li>
+            <li class="nav-item"><a href="#schedule" class="nav-link">Schedule</a></li>
+            <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+            <li class="nav-item"><a href="#organizers" class="nav-link">Team</a></li>
+        </ul>
+    </div>
+<!--     <a href="google.com" class="navbar-brand cta">Register today!</a>-->
+</nav>
+</div>
+
+
+    <div id="header">
+        <img id="logo" src="images/graphics/diano.png">
+        <div id="header-right">
+            <img src="images/logos/text-logo.png" id="main-logo">
+            <div id="countdown">
+                <!-- Display the countdown timer in an element -->
+                <!-- <h1 style="padding-top: 5%">Time Remaining</h1> -->
+                <div id="clockdiv">
+                    <div class="timer">
+                        <div class="days time"></div>
+                    </div>
+                    <div class="timer">
+                        <div class="hours time"></div>
+                    </div>
+                    <div class="timer">
+                        <div class="minutes time"></div>
+                    </div>
+                    <div class="timer">
+                        <div class="seconds time"></div>
+                    </div>
+                </div>
+                <script>
+                    function getTimeRemaining(endtime) {
+                        var t = Date.parse(endtime) - Date.parse(new Date());
+                        var seconds = Math.floor((t / 1000) % 60);
+                        var minutes = Math.floor((t / 1000 / 60) % 60);
+                        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                        return {
+                            'total': t,
+                            'days': days,
+                            'hours': hours,
+                            'minutes': minutes,
+                            'seconds': seconds
+                        };
+                    }
+
+                    function initializeClock(id, endtime) {
+                        var clock = document.getElementById(id);
+                        var timer = clock.querySelector('.timer');
+
+                        var daysSpan = clock.querySelector('.days');
+                        var hoursSpan = clock.querySelector('.hours');
+                        var minutesSpan = clock.querySelector('.minutes');
+                        var secondsSpan = clock.querySelector('.seconds');
+
+                        function updateClock() {
+                            var t = getTimeRemaining(endtime);
+                            daysSpan.innerHTML = t.days + " d";
+                            hoursSpan.innerHTML = ('' + t.hours).slice(-2) + " h";
+                            minutesSpan.innerHTML = ('' + t.minutes).slice(-2) + " m";
+                            secondsSpan.innerHTML = ('' + t.seconds).slice(-2) + " s";
+
+                            daysSpan.style.width = "100%";
+                            hoursSpan.style.width = "100%";
+                            minutesSpan.style.width = "100%";
+                            secondsSpan.style.width = "100%";
+                            daysSpan.style.fontSize = "24px";
+                            hoursSpan.style.fontSize = "24px";
+                            minutesSpan.style.fontSize = "24px";
+                            secondsSpan.style.fontSize = "24px";
+
+                            if (t.total <= 0) {
+                                clearInterval(timeinterval);
+                            }
+                        }
+
+                        updateClock();
+                        var timeinterval = setInterval(updateClock, 1000);
+                    }
+
+                    var deadline = new Date("Feb 22, 2021 8:00:00");
+                    initializeClock('clockdiv', deadline);
+                </script>
+            </div>
+            <h2 id="hack-date">
+                February 22 - 23, 2021 <br>
+                Rutgers University, Cook Student Center <br>
+                <!-- New Jersey's largest all-female, femme, and non-binary hackathon. -->
+            </h2>
+
+            <div id="app_buttons">
+                <button id="hacker_button"><a target="_blank" href="">Hacker App</a></button>
+                <button id="mentor_button"><a target="_blank" href="">Mentor App</a></button>
+                <button id="volunteer_button"><a target="_blank" href="">Volunteer App</a></button>
+            </div>
+
+            <div id="coming_soon">
+                Live site coming soon!
+            </div>
+            <div class="list-inline">
+                        <a href="https://www.facebook.com/ruhackhers/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                        <a href="https://twitter.com/ruhackhers" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+
+                        <a href="https://instagram.com/ruhackhers" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
+                        <a href="https://medium.com/@ruhackhers" target="_blank" class="btn-social btn-outline"><i class="fa fa-medium"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="main">
+        <!-- ABOUT -->
+        <div class="section" id="about">
+            <h1 class="section-title">about</h1>
+            <h4>New Jersey's largest all-female, femme, and non-binary hackathon.</h4>
+            <div id="about-info">
+                <p>
+                    Join us for a weekend dedicated to <b>filling the gender gap</b>,
+                    exploring technology, and building the next big thing! Our mission
+                    is to support and nurture women* in tech by hosting Rutgers'
+                    premiere <b>all female* hackathon</b>. Expect a weekend
+                    full of workshops, mentorship, tech talks, social activities, food,
+                    and more! No experience necessary, you just need passion.                    
+                </p>
+                <p>
+                    In its seventh iteration, over 500 students will come together for 24 hours to 
+                    <b>create with code </b> and turn their ideas into reality. HackHERS is organized by 
+                    <b><a href="http://rutgerswics.org" target="_blank">Rutgers Women in Computer Science</a></b> in collaboration with
+                     <b><a href="http://douglass.rutgers.edu" target="_blank">Douglass Residential College</a></b>.
+                </p>
+                <p>
+                    <strong>*trans and non-binary inclusive</strong>
+                </p>
+            </div>
+            <div id="info-cards">
+                <div class="card">
+                    <img class="about-img" src="" width="150px">
+                    <p>
+                        From hardware to mobile, there are so many fields to
+                        explore! We want women to explore their ideas and interests, and
+                        are looking forward to some amazing projects!
+                    </p>
+                </div>
+                <div class="card">
+                    <img class="about-img" src="" width="150px">
+                    <p>
+                        We're all about helping each other grow! We hope to foster a
+                        supportive environment so that each participant at HackHERS
+                        feels welcome and comfortable.
+                    </p>
+                </div>
+                <div class="card">
+                    <img class="about-img" src="" width="150px">
+                    <p>
+                        Right now, only 20% of hackathon participants are women. We hope
+                        to fill that gap by providing a comfortable environment that is
+                        focused on learning and exploring!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="section" id="faq">
+
+            <div id="faq-content">
+
+                <!-- Questions -->
+                <ul class="faq">
+                    <div class="section-title">faqs</div>
+                    <li>
+                            <h3 class="question">What is a women-centric hackathon?</h3>
+
+                        <div class="answer">
+                            HackHERS is a hackathon geared towards women. We allow people of all genders to participate because closing the gender gap in technology is an issue that everyone needs to partake in.
+                            There are so many reasons why more women should be involved in tech, yet there are still barriers present to this day that contribute to underrepresentation. By organizing this event, we work to close this gender gap.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">I identify as a male—does that mean I can attend then?
+                        </h3>
+                        <div class="answer">
+                            Yes! It is very important to us that all genders work together and build awesome projects!
+                            However, every team must have <b>at least 1 woman</b> to be eligible for a prize.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">I don’t have any coding experience, can I still participate?
+                        </h3>
+                        <div class="answer">
+                            OF COURSE! A hackathon provides the perfect environment to learn how to code. As long as you have an open mind and are willing to learn, we guarantee you will get something out of it. We also tailor HackHERS to be beginner-friendly, so we will be providing workshops all throughout the day, and there will be volunteer and mentors ready to answer any questions you may have.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">I don’t feel comfortable going in without some experience...
+                        </h3>
+                        <div class="answer">
+                            We understand, and we got you! Every year, we host a series of workshops about a week before HackHERS called "Pre-HackHERS", in which we cover topics such as basic web development, how to use git and github, etc. We also provide professional development workshops as well. More details about Pre-HackHERS 2021 will be released on our Facebook page.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">How do I apply?
+                        </h3>
+                        <div class="answer">
+                            <!-- Applications for hackers are open now until Feb 16th. -->
+                            Applications will open in December 2020.
+                            Mentor and volunteer apps will open in January 2021.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">Does this cost money?
+                        </h3>
+                        <div class="answer">
+                            Nope! Admission is free and covers overnight stay, food, all the snacks you could ever want, and of course, our sponsors and HackHERS will provide you with the free swag!!
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3 class="question">Where will HackHERS take place?
+                        </h3>
+                        <div class="answer">
+                            HackHERS will take place at the Cook Student Center (formerly know as Cook Campus Center) in the Cook/Douglass campus of Rutgers University – New Brunswick.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">Is there any parking available?
+                        </h3>
+                        <div class="answer">
+                            If you are planning on driving, there will be event parking available. Non-Rutgers students may park at Lot 76, Lot 99C, or Lot 99D. Rutgers students with registered vehicles are NOT allowed to park in these lots. Email rutgers.hackhers@gmail.com to find out how to register for parking.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">Will there be hardware available?
+                        </h3>
+                        <div class="answer">
+                            Yes! Hardware will be provided by MLH.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">How do teams work?
+                        </h3>
+                        <div class="answer">
+                            At most teams can have 4 people. You can have your teammates in mind before the event, or you can find a team during our team formation activity before and after opening ceremony!
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">Can I come if I am still in high school?
+                        </h3>
+                        <div class="answer">
+                            Unfortunately, due to Rutgers policy, we cannot allow high schoolers to attend HackHERS :( However we will still encourage and support you to learn and build to your heart’s content on your own! You are more than welcome to email us and ask any questions about how to get started.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">What about travel reimbursements?
+                        </h3>
+                        <div class="answer">
+                            Unfortunately, due to Rutgers administration policy, we are unable to provide travel reimbursements or buses to HackHERS :( We are willing to work with you and/or your group to arrange cheap travel to the event.Sorry for the inconvenience.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">What should I bring?
+                        </h3>
+                        <div class="answer">
+                            Remember to bring a valid student or goverment-issued ID for admission and anything you need to hack away! Because this is an overnight event, you may want to bring a sleeping bag, a toothbrush, toothpaste, and a change of clothes. You should also bring a laptop, and if you have one, an extension cord.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">What is with the dinosaur?
+                        </h3>
+                        <div class="answer">
+                            Diano is our mascot, and she isn't just any dinosaur. She's a dinosaur that hacks. Why wouldn't you love a dinosaur that also hacks?
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">Is there a code of conduct?
+                        </h3>
+                        <div class="answer">
+                            Yes, we want to make HackHERS enjoyable for everyone! We follow MLH's Code of Conduct:
+                            <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">here</a>.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">This looks like a cool event! Can my company get involved??
+                        </h3>
+                        <div class="answer">
+                            Absolutely! If you want to sponsor us, please email <a href="mailto:sponsorship@hackhers.org">sponsorship@hackhers.org</a>.
+                        </div>
+                    </li>
+                    <li>
+                        <h3 class="question">Can I mentor or volunteer?
+                        </h3>
+                        <div class="answer">
+                            Yes! We welcome all regardless of gender who want to help. We appreciate all who want to
+                            support our cause. Mentors help hackers during the event
+                            with any technical questions they might have. Volunteers support the organizing team
+                            during
+                            the hackathon with various
+                            tasks. Links for both apps are at the top of the page.
+                        </div>
+                    </li>
+                </ul>
+                <div id="faq-right">
+                    <img src="images/graphics/diano.png" class="side">
+                    <div> if we missed your question, hit us up at <a
+                            href="mailto:info@hackhers.org">info@hackhers.org</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPONSORS -->
+        <div class="section" id="sponsors">
+            <div class="section-title">2021 Sponsors</div>
+            <div class="sponsor-thanks">
+                A <b>huge</b> thank you to all our returning and new sponsors for 2021! If your company is interested in sponsoring
+                us this year, please email <a href="mailto:sponsorship@hackhers.org">sponsorship@hackhers.org</a>,
+                <!-- A <b>huge</b> thank you to all our returning and new sponsors for 2021! We are no longer accepting
+                sponsors for this year, but keep an eye out for next year. -->
+                <br>
+            </div>
+            <div id="sponsor-logos">
+                <!-- Gold -->
+                <div class="sponsor-tier gold">
+                    <a href="http://fiserv.com/" target="_blank"><img
+                            src="images/sponsors/gold/fiserv.png"></a>
+                    <a href="http://icims.com/" target="_blank"><img
+                            src="images/sponsors/gold/icims.png"></a>
+                </div>
+                <!-- Silver-->
+                <div class="sponsor-tier silver">
+                    <a href="http://bloomberg.com/" target="_blank"><img
+                            src="images/sponsors/silver/bloomberg.png"></a>
+                    <a href="http://capitalone.com/" target="_blank"><img
+                            src="images/sponsors/silver/capital_one.png"></a>
+                    <a href="http://gartner.com/" target="_blank"><img
+                            src="images/sponsors/silver/gartner.png"></a>
+                    <a href="http://cloud.google.com/" target="_blank"><img
+                            src="images/sponsors/silver/google_cloud.png"></a>
+                    <a href="http://lockeedmartin.com/" target="_blank"><img
+                            src="images/sponsors/silver/lockheed_martin.png"></a>
+                    <a href="http://vanguard.com/" target="_blank"><img
+                            src="images/sponsors/silver/vanguard.png"></a>
+                    <a href="http://verizon.com/" target="_blank"><img
+                            src="images/sponsors/silver/verizon.png"></a>
+                    <a href="https://www2.wakefern.com/" target="_blank"><img
+                            src="images/sponsors/silver/wakefern.png"></a>
+                </div>
+                <!-- Bronze-->
+                <div class="sponsor-tier bronze">
+                    <a href="http://oracle.com/" target="_blank"><img
+                            src="images/sponsors/bronze/oracle.png"></a>
+                    <a href="http://tcs.com/" target="_blank"><img
+                            src="images/sponsors/bronze/tata.png"></a>
+                </div>
+                <!-- Other Sponsors -->
+                <div class="sponsor-tier misc">
+                    <a href="http://douglass.rutgers.edu/" target="_blank"><img
+                        src="images/sponsors/misc/douglass.png"></a>
+                    <a href="http://rutgers.edu/" target="_blank"><img
+                        src="images/sponsors/misc/rutgers.png"></a>
+                    <a href="http://kingpita.com/" target="_blank"><img
+                        src="images/sponsors/misc/king_pita.png"></a>
+                    <a href="http://mlh.io/" target="_blank"><img
+                        src="images/sponsors/misc/mlh.png"></a>
+                </div>
+            </div>
+        </div>
+
+        <!--&lt;!&ndash; SOCIAL MEDIA &ndash;&gt;
+        <div class="section" id="social_media">
+            <div class="section-title">
+                Recent Instagram Posts
+            </div>
+            &lt;!&ndash; <div class='embedsocial-instagram' data-ref="56fd52ed1acb9c90192514399099b86aed976d0c"></div><script>(function(d, s, id){var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/embedscript/in.js"; d.getElementsByTagName("head")[0].appendChild(js);}(document, "script", "EmbedSocialInstagramScript"));</script> &ndash;&gt;
+            <div class='embedsocial-instagram' data-ref="c451e9fac57169d61012ccceb4e65a89311f5910"></div><script>(function(d, s, id){var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/embedscript/in.js"; d.getElementsByTagName("head")[0].appendChild(js);}(document, "script", "EmbedSocialInstagramScript"));</script>
+        </div>-->
+    </div>
+
+    <!-- team -->
+    <div class="section" id="organizers">
+        <div class="section-title">Meet The Team</div>
+
+        <div class="team">
+            <div class="person">
+                <img src="images/board/sam_new.jpg" class="profile-img">
+                <p>Samantha Lee</p>
+                <p class="team-name">HackHERS Executive Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/madhu_new.jpg" class="profile-img">
+                <p>Madhu Sivaraj</p>
+                <p class="team-name">President</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/manasvi.jpg" class="profile-img">
+                <p>Manasvi Medam</p>
+                <p class="team-name">Finance Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/deepika_new.jpg" class="profile-img">
+                <p>Deepika Onteru</p>
+                <p class="team-name">Sponsorship Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/varna_new.jpg" class="profile-img">
+                <p>Varna Chandar</p>
+                <p class="team-name">Sponsorship Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/jarelle.jpg" class="profile-img">
+                <p>Jarelle Boac</p>
+                <p class="team-name">Events Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/nikita.jpg" class="profile-img">
+                <p>Nikita Sharma</p>
+                <p class="team-name">Events Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/rakshaa_new.jpg" class="profile-img">
+                <p>Rakshaa Ravishankar</p>
+                <p class="team-name">Experience Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/rachael.jpg" class="profile-img">
+                <p>Rachael Chin</p>
+                <p class="team-name">Experience Director</p>
+            </div>
+
+            <div class="person">
+                <img src="images/board/kuhu.jpg" class="profile-img">
+                <p>Kuhu Halder</p>
+                <p class="team-name">Marketing Director</p>
+            </div>
+            <div class="person">
+                <img src="images/board/rachana.jpg" class="profile-img">
+                <p>Rachana Kotamraju</p>
+                <p class="team-name">Design Director</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    <div id="footer">
+        <div class="footer-left">
+            <div class="footer-logo">
+                <img src="images/logos/text-logo-footer.png" class="footer-img">
+            </div>
+            <div class="social-icons">
+                <a href="http://facebook.com/ruhackhers" target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="http://instagram.com/ruhackhers/?hl=en" target="_blank">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:rutgers.hackhers@gmail.com" target="_blank">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="made-with">
+            <p>Made with 💜 in New Brunswick</p>
+        </div>
+
+
+    </div>
+    
+</body>
+
+</html>

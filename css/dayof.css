@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+@-ms-viewport {
+  width: device-width;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100vh;
+  min-width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #9dbddf;
+  font-family: 'Questrial', Arial, sans-serif;
+}
+
+.intro {
+  width: 100vw;
+
+  display: flex;
+}
+
+/* Clouds */
+/*Time to finalise the cloud shape*/
+.clouds {
+  bottom: 0;
+  left: 0;
+  padding-top: 100px;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.cloud {
+  background: -moz-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(5%, #fff),
+    color-stop(100%, #f1f1f1)
+  );
+  background: -webkit-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: -o-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: -ms-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
+
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+
+  height: 120px;
+  position: relative;
+  width: 350px;
+}
+
+.cloud:after,
+.cloud:before {
+  background: #fff;
+
+  position: absolute;
+  z-index: -1;
+}
+
+.cloud:after {
+  content: '';
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+
+  height: 100px;
+  left: 50px;
+  top: -50px;
+  width: 100px;
+}
+
+.cloud:before {
+  content: '';
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  border-radius: 200px;
+
+  width: 180px;
+  height: 180px;
+  right: 50px;
+  top: -90px;
+}
+.x1 {
+  top: 150px;
+  left: 200px;
+  -webkit-animation: moveclouds 38s linear infinite;
+  -moz-animation: moveclouds 38s linear infinite;
+  -o-animation: moveclouds 38s linear infinite;
+  opacity: 0.4;
+}
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+  left: 400px;
+  top: 300px;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+  opacity: 0.5;
+  /*opacity proportional to the size*/
+  /*Speed will also be proportional to the size and opacity*/
+  /*More the speed. Less the time in 's' = seconds*/
+  -webkit-animation: moveclouds 20s linear infinite;
+  -moz-animation: moveclouds 20s linear infinite;
+  -o-animation: moveclouds 20s linear infinite;
+}
+
+.x3 {
+  left: 250px;
+  top: 0;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.3;
+  /*opacity proportional to the size*/
+  -webkit-animation: moveclouds 45s linear infinite;
+  -moz-animation: moveclouds 45s linear infinite;
+  -o-animation: moveclouds 45s linear infinite;
+}
+
+.x4 {
+  left: 470px;
+  top: -300px;
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75);
+  opacity: 0.8;
+  /*opacity proportional to the size*/
+  -webkit-animation: moveclouds 28s linear infinite;
+  -moz-animation: moveclouds 28s linear infinite;
+  -o-animation: moveclouds 28s linear infinite;
+}
+
+.x5 {
+  left: -150px;
+  top: 0;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.5;
+  /*opacity proportional to the size*/
+  -webkit-animation: moveclouds 60s linear infinite;
+  -moz-animation: moveclouds 60s linear infinite;
+  -o-animation: moveclouds 60s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+@-moz-keyframes moveclouds {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+@-o-keyframes moveclouds {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  top: 0;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-bottom: 3vh;
+  flex-wrap: wrap;
+}
+#items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#title {
+  font-size: 80px;
+  color: pink;
+  font-family: 'Amatic SC', cursive;
+}
+#logo {
+  display: block;
+  position: fixed;
+  width: 60px;
+  right: 20px;
+  top: 20px;
+  z-index: 10000;
+}
+#countdown {
+  font-size: 60px;
+  color: white;
+  font-family: 'Amatic SC', cursive;
+}
+
+.schedule {
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 10px;
+
+  margin-bottom: 3%;
+
+  height: 75vh;
+  width: 80vw;
+  opacity: 0.63;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+tr {
+  font-size: 15px;
+}
+
+td {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  width: 20%;
+}
+th {
+  height: 50px;
+  vertical-align: bottom;
+  text-align: left;
+  width: 20%;
+}
+table {
+  padding-left: 10px;
+}
+#curr_time {
+  width: 80%;
+  margin-right: 40px;
+  float: right;
+  border-bottom: 2px dotted red;
+}
+#schedule_header {
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  width: 80vw;
+  overflow-y: scroll;
+  height: 10vh;
+  text-align: left;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px 10px 0px 0px;
+  opacity: 0.63;
+  z-index: 10000;
+}
+.event_types {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+}
+.event_type {
+  height: 100%;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.dot {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+.event_type_text {
+  padding-left: 5px;
+  font-size: 18px;
+}
+#schedule_body {
+  overflow: scroll;
+  padding-top: 10vh;
+}
+#left-time {
+  width: 10%;
+  float: left;
+  text-align: center;
+  margin-top: 43px;
+  font-size: 11px;
+}
+table {
+  border-collapse: separate;
+  padding-right: 40px;
+}
+.clock {
+  height: 50px;
+  vertical-align: center;
+}
+
+.event {
+  border: 5px double white;
+  height: 100%;
+  background-color: pink;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.event a {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.blue {
+  background-color: #91cff3;
+}
+.pink {
+  background-color: rgba(255, 147, 165, 0.692);
+}
+
+.orange {
+  background: #ffa011f1;
+}
+
+.purple {
+  background: #d3a8ff;
+}
+
+.icon {
+  /* to make it clickable above the clouds */
+  z-index: 1;
+}
+
+img {
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  #header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    order: 3;
+  }
+  #items img {
+    height: 50px;
+    width: 40px;
+  }
+  #timer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+    display: none;
+  }
+
+  #countdown {
+    font-size: 25px;
+    color: white;
+    font-family: 'Amatic SC', cursive;
+  }
+  #schedule_title {
+    display: none;
+  }
+
+  .event_types {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .event_type {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+  }
+  .event_type_text {
+    margin-right: 5px;
+    font-size: 10px;
+  }
+
+  .event {
+    border: 5px double white;
+    height: 100%;
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .event a {
+    font-size: 10px;
+    font-weight: normal;
+  }
+  tr {
+    font-size: 12px;
+    overflow-y: hidden;
+  }
+  table {
+    width: 90vw;
+    overflow-y: hidden;
+    padding: 0px;
+  }
+  .schedule {
+    width: 90vw;
+  }
+  tbody {
+    overflow-y: hidden;
+  }
+  #schedule_header {
+    width: 90vw;
+  }
+}
